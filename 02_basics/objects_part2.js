@@ -53,3 +53,7 @@ console.log(object);
 console.log(object.hasOwnProperty('name'));
 console.log(object.hasOwnProperty('nam'));
 
+
+console.log(Object.keys(tinderUser));
+console.log(Object.keys(tinderUser).length);
+
