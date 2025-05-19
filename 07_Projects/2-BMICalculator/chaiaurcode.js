@@ -4,7 +4,7 @@ const BMI_Calculator = (page) => {
   page.preventDefault();
   const height = parseFloat(document.querySelector("#height").value);
   const weight = parseFloat(document.querySelector("#weight").value);
-  const bmi = weight / height ** 2;
+  const bmi = (weight / height ** 2).toFixed(2);
   document.getElementById("results").textContent = "BMI: " + bmi;
 };
 
