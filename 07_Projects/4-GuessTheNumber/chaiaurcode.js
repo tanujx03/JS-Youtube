@@ -19,12 +19,15 @@ const provideHint = (userGuess) => {
   }
 };
 
+const guessedNumbers = [];
+
 // Check user's guess and update UI accordingly
 const handleGuess = (userGuess) => {
   if (randomNumber !== userGuess) {
     guessCount++;
     if (guessCount <= 10) {
-      guessesDisplay.innerHTML = guessCount;
+      guessedNumbers.push(userGuess);
+      guessesDisplay.innerHTML = guessedNumbers.join(", ");
       remainingAttemptsDisplay.innerHTML = 10 - guessCount;
       provideHint(userGuess);
     } else {
@@ -32,6 +35,7 @@ const handleGuess = (userGuess) => {
     }
   } else {
     hintDisplay.innerHTML = "Correct! You guessed the number.";
+    guessCount++;
   }
 };
 
@@ -48,4 +52,5 @@ const processUserGuess = (event) => {
 };
 
 const randomNumber = generateRandomNumber();
+
 submitButton.addEventListener("click", processUserGuess);
